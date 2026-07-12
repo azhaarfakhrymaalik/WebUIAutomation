@@ -20,3 +20,5 @@ Struktur Folder Utama
 - `src/test/java/stepdefinitions` : Logika pengendali instruksi Gherkin.
 - `src/test/java/runners` : Pengaturan konfigurasi eksekusi tes JUnit & Cucumber.
 - `src/test/resources/features` : Skenario uji berbasis file `.feature`.
+
+<img width="1352" height="638" alt="Screenshot_1" src="https://github.com/user-attachments/assets/8abd5dcb-baee-4c03-be76-dbcb5535f8c5" />
