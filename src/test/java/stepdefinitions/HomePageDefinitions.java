@@ -19,14 +19,16 @@ public class HomePageDefinitions {
 
         ChromeOptions options = new ChromeOptions();
 
-        options.addArguments("--headless=new");
-        options.addArguments("--disable-gpu");
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--window-size=1920,1080");
+        String githubActions = System.getenv("GITHUB_ACTIONS");
+        if (githubActions != null && githubActions.equals("true")) {
+            options.addArguments("--headless=new");
+            options.addArguments("--disable-gpu");
+            options.addArguments("--no-sandbox");
+            options.addArguments("--disable-dev-shm-usage");
+            options.addArguments("--window-size=1920,1080");
+        }
 
         WebDriverManager.chromedriver().setup();
-
         this.driver = new ChromeDriver(options);
         this.driver.manage().window().maximize();
         this.loginPage = new LoginPage(driver);
