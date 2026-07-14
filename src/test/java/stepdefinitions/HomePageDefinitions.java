@@ -31,9 +31,6 @@ public class HomePageDefinitions {
         this.driver.manage().window().maximize();
         this.loginPage = new LoginPage(driver);
 
-        this.driver = WebDriverManager.chromedriver().create();
-        this.driver.manage().window().maximize();
-        this.loginPage = new LoginPage(driver);
     }
 
     @Given("I am on the home page")
