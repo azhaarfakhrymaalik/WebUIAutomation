@@ -6,6 +6,8 @@ import io.cucumber.java.en.When;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import page.LoginPage;
 
 public class HomePageDefinitions {
@@ -14,6 +16,21 @@ public class HomePageDefinitions {
     private LoginPage loginPage;
 
     public HomePageDefinitions() {
+
+        ChromeOptions options = new ChromeOptions();
+
+        options.addArguments("--headless=new");
+        options.addArguments("--disable-gpu");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--window-size=1920,1080");
+
+        WebDriverManager.chromedriver().setup();
+
+        this.driver = new ChromeDriver(options);
+        this.driver.manage().window().maximize();
+        this.loginPage = new LoginPage(driver);
+
         this.driver = WebDriverManager.chromedriver().create();
         this.driver.manage().window().maximize();
         this.loginPage = new LoginPage(driver);
