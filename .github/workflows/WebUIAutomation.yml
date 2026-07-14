@@ -35,6 +35,8 @@ jobs:
     # execute gradle command for running cucumber test
     - name: Execute Test 
       run: ./gradlew test
+      env:
+          CHROME_BIN: /usr/bin/google-chrome
 
     # Archive Test Result
     - name: Archive Test Result
